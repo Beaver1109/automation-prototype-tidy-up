@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d.get\\('version'\\), d.get\\('description',''\\)\\)\")",
+      "Bash(npm start *)",
+      "Bash(npm install *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('version:', d.get\\('version'\\)\\); print\\('main:', d.get\\('main','none'\\)\\); print\\('exports keys:', list\\(d.get\\('exports',{}\\).keys\\(\\)\\)[:5]\\)\")",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('/Users/chenc02/keap-prototype/node_modules/tailwindcss/package.json'\\)\\); print\\('v:', d['version']\\); exps = d.get\\('exports', {}\\); print\\('exports:', list\\(exps.keys\\(\\)\\)[:8]\\)\")",
+      "Bash(npx tsc *)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(open http://localhost:3000/)",
+      "Bash(curl -s \"http://localhost:3000/src/App.tsx\")",
+      "Bash(claude doctor *)",
+      "Bash(claude --version)",
+      "Bash(curl -fsSL https://claude.ai/install.sh)",
+      "Bash(bash)"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "dex-design-system"
+  ]
+}
