@@ -368,11 +368,19 @@ function SelectionToolbarButton({
   label,
   onClick,
   danger,
+  disabled,
+  disabledHint,
   children,
 }: {
   label: string
   onClick: () => void
   danger?: boolean
+  /** When true, button is greyed-out and the onClick is suppressed.
+   *  Hover tooltip still shows so the user can see the label;
+   *  optional `disabledHint` overrides the label when provided
+   *  (e.g. "Disabled in this workflow"). */
+  disabled?: boolean
+  disabledHint?: string
   children: React.ReactNode
 }) {
   const [hover, setHover] = useState(false)
@@ -381,7 +389,8 @@ function SelectionToolbarButton({
       <button
         type="button"
         aria-label={label}
-        onClick={onClick}
+        aria-disabled={disabled || undefined}
+        onClick={() => { if (!disabled) onClick() }}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         style={{
@@ -389,15 +398,20 @@ function SelectionToolbarButton({
           height: 36,
           padding: 0,
           border: 'none',
-          background: hover ? 'rgba(0,0,0,0.04)' : 'transparent',
-          cursor: 'pointer',
+          background: disabled
+            ? 'transparent'
+            : hover
+              ? 'rgba(0,0,0,0.04)'
+              : 'transparent',
+          cursor: disabled ? 'not-allowed' : 'pointer',
           borderRadius: 8,
           color: danger ? '#DC2626' : 'var(--dex-color-gray-1600, #272727)',
+          opacity: disabled ? 0.35 : 1,
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
           fontFamily: 'inherit',
-          transition: 'background-color 0.12s ease',
+          transition: 'background-color 0.12s ease, opacity 0.12s ease',
         }}
       >
         {children}
@@ -422,7 +436,7 @@ function SelectionToolbarButton({
             boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
           }}
         >
-          {label}
+          {disabled && disabledHint ? disabledHint : label}
         </span>
       )}
     </span>
@@ -10704,6 +10718,12 @@ export default function AutomationBuilder() {
                 <SelectionToolbarButton
                   label="Tidy up"
                   onClick={tidyUpSelection}
+                  // "Messy flow_Manual" (adv1) is the manual-tidy demo —
+                  // the Tidy up tool is intentionally disabled there so
+                  // testers can compare it against adv2 ("Messy flow_
+                  // Tidy up tool") which keeps the tool enabled.
+                  disabled={automationId === 'adv1'}
+                  disabledHint="Tidy up is disabled in this workflow"
                 >
                   <svg
                     width="20"

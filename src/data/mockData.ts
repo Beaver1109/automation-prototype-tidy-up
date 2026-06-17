@@ -227,8 +227,8 @@ export const forms: Form[] = [
 ]
 
 export const advancedAutomations: AdvancedAutomation[] = [
-  { id: 'adv1', name: 'Manual organize this messy workflow',     category: 'Whiskers', status: 'Draft',     activeContacts: 0, publishDate: 'Not published',      numericId: 3000 },
-  { id: 'adv2', name: 'Use Tidy-up to organize this messy workflow', category: 'Whiskers', status: 'Published', activeContacts: 0, publishDate: '1/28/2026, 4:11 pm', numericId: 2888 },
+  { id: 'adv1', name: 'Messy flow_Manual',        category: 'Whiskers', status: 'Draft',     activeContacts: 0, publishDate: 'Not published',      numericId: 3000 },
+  { id: 'adv2', name: 'Messy flow_Tidy up tool',  category: 'Whiskers', status: 'Published', activeContacts: 0, publishDate: '1/28/2026, 4:11 pm', numericId: 2888 },
 ]
 
 export const automations: Automation[] = [
