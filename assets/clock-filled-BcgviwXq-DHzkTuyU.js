@@ -1,0 +1,1 @@
+import{i as e,t}from"./react-XJBuoVlO.js";var n=e(t(),1),r=e=>n.createElement(`svg`,{height:24,width:24,xmlns:`http://www.w3.org/2000/svg`,...e},n.createElement(`path`,{d:`M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1zm0 3a1 1 0 0 0-1 1v7a1 1 0 0 0 .553.894l4 2a1 1 0 1 0 .894-1.788L13 11.382V5a1 1 0 0 0-1-1z`,fillRule:`evenodd`}));export{r as default};

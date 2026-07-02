@@ -1,0 +1,1 @@
+var e=`Close`,t=`Dismiss`,n=`Clear`,r=`Remove`,i=`First`,a=`Last`,o=`Next`,s=`Previous`,c=`More`,l=`Toggle`,u=`No results found`,d={close:e,dismiss:t,clear:n,remove:r,first:i,last:a,next:o,previous:s,more:c,toggle:l,noResultsFound:u};export{i as a,o as c,t as d,u as f,e as i,r as l,c as n,l as o,d as r,n as s,a as t,s as u};
